@@ -1,0 +1,40 @@
+from question import question
+
+questions = [
+            "Q1. How many planets are there in the solar system?",
+            "Q2. What is the color of a banana?",
+            "Q3. Where is Liège Located?",
+            "Q4. What is the world's longest river?"
+            ];
+
+choices  = [
+            "\na. 4 \nb. 8 \nc. 7",
+            "\na. Yellow \nb. Blue \nc. Purple",
+            "\na. Nigeria \nb. Germany \nc. Belgium",
+            "\na. Amazon \nb. Nile \nc. Yangtze"
+            ];
+
+prompt_questions = [
+                    questions[0] + choices[0],
+                    questions[1] + choices[1],
+                    questions[2] + choices[2],
+                    questions[3] + choices[3]
+                    ];
+
+Ques_Ans = [
+                  question(prompt_questions[0], "b"),
+                  question(prompt_questions[1], "a"),
+                  question(prompt_questions[2], "c"),
+                  question(prompt_questions[3], "b")
+                  ];
+
+def launch_quiz(Ques_Ans):
+     score = 0
+     for q in Ques_Ans:
+          user_in = input(q.q_prompt + "\n\nEnter your answer: ")
+          print()
+          if user_in == q.q_answer:
+               score += 1
+     print("\nYou got " + str(score) + "/" + str(len(Ques_Ans)) + " questions correct.")
+
+launch_quiz(Ques_Ans)
